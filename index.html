@@ -197,8 +197,19 @@ h1,h2,h3,h4{text-wrap:balance}
 .contact{display:grid;gap:4px}
 .contact a{display:flex;align-items:center;gap:12px;min-height:46px;text-decoration:none;font-weight:500;overflow-wrap:anywhere}
 .contact svg{color:var(--forest);flex-shrink:0}
-.shops{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
-.shops .btn{flex:1 1 140px;min-height:46px;font-size:17px}
+/* Online shop: under the store photo, two marketplace buttons in each site's own color */
+.visit-main{display:grid;gap:12px}
+.shop .note{margin:0 0 12px;color:var(--muted)}
+.shops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.shop-btn{display:flex;align-items:center;gap:10px;min-height:64px;padding:10px 12px;border-radius:12px;color:#fff;text-decoration:none;transition:filter .15s}
+.shop-btn:hover{filter:brightness(1.08)}
+.shop-btn:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+.shop-btn span{flex:1;min-width:0}
+.shop-btn b{display:block;font-family:var(--display);font-weight:800;font-size:21px;line-height:1;letter-spacing:.04em;text-transform:uppercase}
+.shop-btn small{display:block;margin-top:3px;font-size:13px;line-height:1.2}
+.shop-btn svg{flex-shrink:0}
+.shopee{background:#D23C1A}
+.lazada{background:#0F146D}
 
 /* Footer */
 .foot{margin-top:60px;background:var(--forest-deep);color:var(--on-forest)}
@@ -377,7 +388,17 @@ h1,h2,h3,h4{text-wrap:balance}
       <h2 class="h2" id="visit-title">Visit or have it delivered</h2>
     </div>
     <div class="visit">
-      <img class="photo" src="img/store.jpg" alt="Inyo Ini Enterprise store building" width="820" height="607" loading="lazy">
+      <div class="visit-main">
+        <img class="photo" src="img/store.jpg" alt="Inyo Ini Enterprise store building" width="820" height="607" loading="lazy">
+        <div class="box shop">
+          <h3>Shop online</h3>
+          <p class="note">Order from our official stores and have it delivered to you.</p>
+          <div class="shops">
+            <a class="shop-btn shopee" href="https://shopee.ph/inyoini" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span><b>Shopee</b><small>Official store</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a class="shop-btn lazada" href="https://www.lazada.com.ph/shop/inyo-ini-enterprise" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span><b>Lazada</b><small>Official store</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          </div>
+        </div>
+      </div>
       <div class="stores">
         <div class="box">
           <h3>Our stores</h3>
@@ -394,14 +415,6 @@ h1,h2,h3,h4{text-wrap:balance}
           <a href="https://www.facebook.com/inyoini1" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>facebook.com/inyoini1</a>
           <a href="mailto:inyoinienterpriseinc@gmail.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>inyoinienterpriseinc@gmail.com</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Inyo+Ini+Enterprise+Estancia+Iloilo" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions to our Estancia store</a>
-        </div>
-        <div class="box">
-          <h3>Shop online</h3>
-          <p style="margin:0 0 8px;color:var(--muted)">Order from our official stores:</p>
-          <div class="shops">
-            <a class="btn btn-line" href="https://shopee.ph/inyoini" target="_blank" rel="noopener">Shopee</a>
-            <a class="btn btn-line" href="https://www.lazada.com.ph/shop/inyo-ini-enterprise" target="_blank" rel="noopener">Lazada</a>
-          </div>
         </div>
       </div>
     </div>
