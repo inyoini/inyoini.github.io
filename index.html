@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inyo Ini Enterprise</title>
+<meta name="description" content="Farm machinery, pumps, engines, generators, power tools, hardware and more from Inyo Ini Enterprise, Estancia, Sara and Banate, Iloilo. Home of the Fujimoto Mini Harvester.">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Inyo Ini Enterprise Inc.">
+<meta property="og:title" content="Inyo Ini Enterprise · Small fields. Big harvests.">
+<meta property="og:description" content="The Fujimoto Mini Harvester and our full product catalog. Powering your operations.">
+<meta property="og:url" content="https://inyoini.github.io/">
+<meta property="og:image" content="https://inyoini.github.io/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column on phones, widening to a 1120px catalog on desktop. Harvester stage first, then specs, new arrivals, best sellers, a tabbed product catalog, and stores. Single light look taken from the printed catalog. */
+:root{
+  --ground:#F2F4EE;     /* page, like the catalog's off-white */
+  --paper:#FFFFFF;      /* cards and photo panels */
+  --ink:#16220F;        /* text */
+  --forest:#2B451E;     /* logo green: buttons and accents */
+  --forest-deep:#1E3214;/* footer band, headline */
+  --mint:#D4EFC6;       /* catalog mint: tags and highlight panels */
+  --muted:#525C4A;      /* secondary text */
+  --line:#DCE3D3;       /* hairlines */
+  --on-forest:#F4F8EF;
+  --on-forest-muted:#C7D4BA;
+  --sun:#F3D34A;        /* coming-soon tag */
+  --display:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  --body:'Barlow',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --gl:max(16px, env(safe-area-inset-left, 0px));
+  --gr:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--paper)}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6FA23A;outline-offset:2px}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,h4{text-wrap:balance}
+
+.wrap{max-width:1120px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest)}
+.h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(34px,6vw,52px);line-height:.98;text-transform:uppercase;letter-spacing:.2px}
+.lead{margin:0;color:var(--muted);font-size:16px;max-width:58ch}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:12px;font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:2px solid var(--forest)}
+.btn-solid{background:var(--forest);color:var(--on-forest)}
+.btn-line{background:transparent;color:var(--forest)}
+.btn svg{flex-shrink:0}
+.go{display:inline-flex;align-items:center;gap:6px;min-height:40px;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.05em;text-transform:uppercase;color:var(--forest);text-decoration:none}
+.go:hover{text-decoration:underline}
+
+/* Top bar */
+.bar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--forest)}
+.brand img{width:auto;height:34px}
+.brand b{display:block;font-family:var(--display);font-weight:800;font-size:23px;line-height:.9;letter-spacing:.06em}
+.brand small{display:block;font-size:10px;font-weight:600;letter-spacing:.18em;color:var(--muted)}
+.bar .btn{min-height:44px;font-size:16px;padding:0 16px}
+
+/* Hero stage */
+.stage{position:relative;overflow:hidden;background:#BFD9EE url("img/field.jpg") center 72%/cover no-repeat}
+.stage::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.82) 0%,rgba(255,255,255,.55) 34%,rgba(255,255,255,0) 60%)}
+.stage .wrap{position:relative;display:grid;gap:4px;padding-block:28px 0}
+.stage h1{margin:10px 0 0;font-family:var(--display);font-weight:800;font-size:clamp(50px,13vw,84px);line-height:.9;text-transform:uppercase;color:var(--forest-deep)}
+.stage .slogan{margin:14px 0 0;display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:clamp(17px,4.6vw,22px);letter-spacing:.14em;text-transform:uppercase;color:var(--forest)}
+.stage .slogan::before{content:"";flex:0 0 30px;height:4px;border-radius:2px;background:var(--sun)}
+.stage .machine{width:min(100%,720px);height:auto;margin:8px auto -6px;filter:drop-shadow(0 18px 18px rgba(20,40,10,.28))}
+.hero-after{background:var(--paper);border-bottom:1px solid var(--line)}
+.hero-after .wrap{display:grid;gap:20px;padding-block:22px 28px}
+.hero-after p{margin:0;font-size:18px;max-width:52ch;text-wrap:pretty}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.cta-row .btn{flex:1 1 220px}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.spec{background:var(--paper);padding:14px 16px}
+.spec b{display:block;font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--forest);font-variant-numeric:tabular-nums}
+.spec span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+@media (min-width:760px){
+  .stage .wrap{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:end;padding-block:48px 0}
+  .stage .copy{align-self:start}
+  .stage .machine{margin:0 0 -8px}
+  .stage::before{background:linear-gradient(90deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.78) 30%,rgba(255,255,255,0) 52%),linear-gradient(180deg,rgba(255,255,255,.6) 0%,rgba(255,255,255,0) 40%)}
+  .specs{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+/* Sections */
+.sec{padding-block:52px 8px;scroll-margin-top:64px}
+.sec-head{display:grid;gap:10px;margin-bottom:20px}
+
+/* Harvester detail */
+.output{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.out{background:var(--mint);border-radius:14px;padding:16px 18px}
+.out h3{margin:0;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--forest)}
+.out p{margin:4px 0 0;font-size:15px}
+.out strong{display:block;font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;color:var(--forest-deep);font-variant-numeric:tabular-nums}
+.note{margin:12px 0 0;font-size:14px;color:var(--muted);max-width:70ch}
+.detail{display:grid;gap:16px;margin-top:24px}
+@media (min-width:860px){.detail{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:start}}
+.table{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.table h3{margin:0;padding:14px 18px;font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;background:var(--forest);color:var(--on-forest);letter-spacing:.04em}
+.table dl{margin:0}
+.table .r{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:12px;padding:10px 18px;border-top:1px solid var(--line);font-size:15px}
+.table .r:first-child{border-top:0}
+.table dt{color:var(--muted)}
+.table dd{margin:0;font-weight:500}
+.why{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 20px 22px;display:grid;gap:14px}
+.why h3{margin:0;font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;color:var(--forest)}
+.why ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.why li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:16px}
+.why li svg{margin-top:3px;color:var(--forest)}
+.why blockquote{margin:4px 0 0;padding:12px 14px;background:var(--mint);border-radius:10px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;color:var(--forest-deep)}
+
+/* New arrivals: compact horizontal cards */
+.arrivals{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr))}
+.arrival{display:grid;grid-template-columns:minmax(0,44%) minmax(0,1fr);background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:196px}
+.arrival .ph{position:relative;background:linear-gradient(180deg,#FAFBF8 0%,#E6ECDF 100%);border-right:1px solid var(--line)}
+/* product cutouts, centered in a light panel; .flush = photo cut at the bottom, so it sits on the panel edge */
+.arrival .ph img{position:absolute;top:10px;left:6px;width:calc(100% - 12px);height:calc(100% - 20px);object-fit:contain;object-position:50% 60%}
+.arrival .ph.flush img{height:calc(100% - 10px);object-position:50% 100%}
+.arrival .body{padding:14px 14px 10px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0}
+.tag{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--mint);color:var(--forest-deep);font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.tag.soon{background:var(--sun)}
+.arrival h3{margin:0;font-family:var(--display);font-weight:800;font-size:23px;line-height:1.02;text-transform:uppercase}
+.arrival p{margin:0;font-size:14px;line-height:1.4;color:var(--muted)}
+.arrival .go{margin-top:auto}
+
+/* Product cards: compact, equal height, two per row on phones */
+.grid{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:960px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}}
+.card{display:flex;flex-direction:column;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:#9DB48A;box-shadow:0 4px 14px rgba(30,50,20,.08)}
+.pic{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--paper);border-bottom:1px solid var(--line)}
+.pic img{position:absolute;top:10px;left:10px;width:calc(100% - 20px);height:calc(100% - 20px);object-fit:contain}
+.pic.fill img{top:0;left:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:8px;left:8px;z-index:1;padding:2px 8px;border-radius:999px;background:var(--forest);color:var(--on-forest);font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.badge.soon{background:var(--sun);color:var(--ink)}
+.txt{display:flex;flex-direction:column;gap:3px;flex:1;padding:10px 12px 11px;min-width:0}
+.txt h4{margin:0;font-family:var(--body);font-weight:600;font-size:15px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em;text-wrap:pretty}
+.txt p{margin:0;font-size:13px;line-height:1.35;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em}
+.ask{margin-top:auto;padding-top:6px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--forest)}
+.card:hover .ask{text-decoration:underline}
+
+/* Catalog tools */
+.tools{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 65px);z-index:5;background:var(--ground);padding-block:10px;margin-bottom:4px;
+  margin-left:calc(-1 * var(--gl));margin-right:calc(-1 * var(--gr));padding-left:var(--gl);padding-right:var(--gr);border-bottom:1px solid var(--line)}
+.search{display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 14px;min-height:48px}
+.search svg{color:var(--muted);flex-shrink:0}
+.search input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:16px;color:var(--ink);padding:12px 0}
+.search input::placeholder{color:#6E7766}
+.search input:focus-visible{outline:none}
+.search:focus-within{border-color:var(--forest);box-shadow:0 0 0 2px var(--mint)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-top:10px;
+  margin-left:calc(-1 * var(--gl));margin-right:calc(-1 * var(--gr));padding-left:var(--gl);padding-right:var(--gr)}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:var(--on-forest)}
+.cat{padding-top:18px}
+.cat h3{margin:0 0 2px;font-family:var(--display);font-weight:800;font-size:28px;line-height:1;text-transform:uppercase}
+.cat .lead{font-size:14px;margin-bottom:14px}
+.more{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 16px;margin-top:10px;padding:14px 16px;border:1.5px dashed #A9B79C;border-radius:12px;background:var(--paper)}
+.more div{flex:1 1 260px;min-width:0}
+.more b{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.04em;text-transform:uppercase;color:var(--forest)}
+.more p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.empty{margin:20px 0;padding:20px;border:1.5px dashed #A9B79C;border-radius:14px;background:var(--paper)}
+.empty p{margin:0 0 12px}
+
+/* Facebook band */
+.band{margin-top:52px;background:var(--mint)}
+.band .wrap{display:grid;gap:16px;padding-block:30px}
+@media (min-width:760px){.band .wrap{grid-template-columns:minmax(0,1fr) auto;align-items:center}}
+.band h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,42px);line-height:1;text-transform:uppercase;color:var(--forest-deep)}
+.band p{margin:8px 0 0;max-width:60ch}
+
+/* Visit */
+.visit{display:grid;gap:16px}
+@media (min-width:860px){.visit{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:start}}
+.visit .photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px}
+.stores{display:grid;gap:12px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.box h3{margin:0 0 8px;font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;color:var(--forest)}
+.box ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.box li{display:flex;justify-content:space-between;gap:4px 12px;flex-wrap:wrap}
+.box li span{color:var(--muted)}
+.contact{display:grid;gap:4px}
+.contact a{display:flex;align-items:center;gap:12px;min-height:46px;text-decoration:none;font-weight:500;overflow-wrap:anywhere}
+.contact svg{color:var(--forest);flex-shrink:0}
+.shops{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.shops .btn{flex:1 1 140px;min-height:46px;font-size:17px}
+
+/* Footer */
+.foot{margin-top:60px;background:var(--forest-deep);color:var(--on-forest)}
+.foot .wrap{display:grid;gap:14px;padding-block:36px 40px;justify-items:center;text-align:center}
+.foot img{width:150px;height:auto;filter:brightness(0) invert(.96)}
+.foot p{margin:0;color:var(--on-forest-muted);font-size:15px}
+.foot a{color:var(--on-forest)}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Inyo Ini Enterprise, back to top">
+      <img src="img/logo-mark.png" alt="" width="27" height="34">
+      <span><b>INYO INI</b><small>ENTERPRISE INC.</small></span>
+    </a>
+    <a class="btn btn-solid" href="https://m.me/inyoini1" rel="noopener">Message us</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="stage" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="copy">
+        <div class="eyebrow">Fujimoto Mini Harvester</div>
+        <h1 id="hero-title">Small fields.<br>Big harvests.</h1>
+        <p class="slogan">Powering your operations</p>
+      </div>
+      <img class="machine" src="img/harvester.webp" alt="Fujimoto Mini Harvester, a green and white crawler rice harvester" width="1128" height="752">
+    </div>
+  </section>
+  <div class="hero-after">
+    <div class="wrap">
+      <p>Cuts, threshes and bags your palay in one pass.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="https://m.me/inyoini1" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> Inquire now</a>
+        <a class="btn btn-line" href="tel:+639608345138"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> Call 0960 834 5138</a>
+      </div>
+      <div class="specs">
+        <div class="spec"><b>1.1 m</b><span>Cutting width</span></div>
+        <div class="spec"><b>25 hp</b><span>Air-cooled diesel</span></div>
+        <div class="spec"><b>1–2.5 ha</b><span>Per 8-hour day</span></div>
+        <div class="spec"><b>560 kg</b><span>Riding crawler</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec wrap" id="harvester" aria-labelledby="harvester-title">
+    <div class="sec-head">
+      <div class="eyebrow">Fujimoto Mini Harvester · Model 4LZ-1.05</div>
+      <h2 class="h2" id="harvester-title">What it does in a day</h2>
+    </div>
+    <div class="output">
+      <div class="out"><h3>Per hour</h3><strong>8–25 cavans</strong><p>8–10 cavans at minimum, 20–25 cavans in ideal conditions</p></div>
+      <div class="out"><h3>Per 8-hour day</h3><strong>70–280 sacks</strong><p>70–80 sacks (about 1 hectare) up to 200–280 sacks (about 2.5 hectares)</p></div>
+      <div class="out"><h3>Fuel</h3><strong>About 40 L/ha</strong><p>35 kg of diesel or less per hectare</p></div>
+    </div>
+    <p class="note">Output depends on the field and the operator. It is lower in wet or lodged rice and higher in dry, standing crops.</p>
+
+    <div class="detail">
+      <div class="table">
+        <h3>Specifications</h3>
+        <dl>
+          <div class="r"><dt>Model</dt><dd>4LZ-1.05</dd></div>
+          <div class="r"><dt>Engine</dt><dd>25 hp air-cooled diesel with starter</dd></div>
+          <div class="r"><dt>Type</dt><dd>Self-propelled, full-feed, crawler (riding)</dd></div>
+          <div class="r"><dt>Weight</dt><dd>560–580 kg</dd></div>
+          <div class="r"><dt>Cutting width</dt><dd>1.1 m (1,100 mm)</dd></div>
+          <div class="r"><dt>Feeding capacity</dt><dd>1.05 kg/s</dd></div>
+          <div class="r"><dt>Field coverage</dt><dd>0.105–0.3 ha per hour</dd></div>
+          <div class="r"><dt>Threshing</dt><dd>Axial flow with rod teeth</dd></div>
+          <div class="r"><dt>Ground clearance</dt><dd>180–190 mm or more</dd></div>
+          <div class="r"><dt>Grain collection</dt><dd>Into a bag or tank</dd></div>
+        </dl>
+      </div>
+      <div class="why">
+        <h3>Why buy it from Inyo Ini</h3>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>After-sales service from our branches in Estancia, Sara and Banate</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Built for easy maintenance, with spare parts you can get locally</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Single-lever controls that are quick to learn</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Delivery available, or pick it up at our branches</span></li>
+        </ul>
+        <blockquote>Kami ang nagdala sang Fujimoto sa Visayas.</blockquote>
+        <a class="btn btn-solid" href="https://m.me/inyoini1" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> Inquire now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="new" aria-labelledby="new-title">
+    <div class="sec-head">
+      <div class="eyebrow">Just arrived in our stores</div>
+      <h2 class="h2" id="new-title">New arrivals</h2>
+    </div>
+    <div class="arrivals">
+<article class="arrival"><div class="ph flush"><img src="img/new-yamma-cutout.webp" alt="Red Yamma mini tractor with a black canopy" loading="lazy"></div><div class="body"><span class="tag">New arrival</span><h3>Yamma Mini Tractor</h3><p>Ride-on mini tractor powered by a Yamma engine, with canopy, padded seat and steering wheel.</p><a class="go" href="https://m.me/inyoini1" rel="noopener">Inquire now <span aria-hidden="true">→</span></a></div></article>
+<article class="arrival"><div class="ph"><img src="img/new-shinro-pump.webp" alt="Blue SHINRO solar pump in a steel frame" loading="lazy"></div><div class="body"><span class="tag">New arrival</span><h3>SHINRO Solar Pump</h3><p>Runs on solar panels, so pumping costs no fuel. Built into a sturdy steel frame.</p><a class="go" href="https://m.me/inyoini1" rel="noopener">Inquire now <span aria-hidden="true">→</span></a></div></article>
+<article class="arrival"><div class="ph"><img src="img/new-fujimoto-tractor.webp" alt="Green Fujimoto mini tractor" loading="lazy"></div><div class="body"><span class="tag soon">Coming soon</span><h3>Fujimoto Mini Tractor</h3><p>24 hp diesel with 4x4 drive. Light on the soil and sure-footed in mud or on slopes.</p><a class="go" href="https://m.me/inyoini1" rel="noopener">Inquire now <span aria-hidden="true">→</span></a></div></article>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="best" aria-labelledby="best-title">
+    <div class="sec-head">
+      <div class="eyebrow">From pumps to power tools</div>
+      <h2 class="h2" id="best-title">Best sellers</h2>
+    </div>
+    <div class="grid">
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-water.webp" alt="Green jet water pump" loading="lazy"></div><div class="txt"><h4>Water Pumps</h4><p>Jet and self-priming · 0.5–2 hp</p><span class="ask">Ask for price</span></div></a>
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-submersible.webp" alt="Two Dayuan submersible pumps" loading="lazy"></div><div class="txt"><h4>Dayuan Submersible Pump</h4><p>QDX65-8-2.2A · Clean and dirty water</p><span class="ask">Ask for price</span></div></a>
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-diesel-engine.webp" alt="Red 12 hp diesel engine" loading="lazy"></div><div class="txt"><h4>Diesel Engine</h4><p>190FA · 12 hp · Fiber tank and cover</p><span class="ask">Ask for price</span></div></a>
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-engine-pump.webp" alt="Diesel engine water pump" loading="lazy"></div><div class="txt"><h4>Diesel &amp; Gasoline Water Pumps</h4><p>Engine-driven · For irrigation and drainage</p><span class="ask">Ask for price</span></div></a>
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-floating-tiller.webp" alt="Yellow floating tillers" loading="lazy"></div><div class="txt"><h4>Floating Tiller</h4><p>For flooded paddies</p><span class="ask">Ask for price</span></div></a>
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-power-tiller.webp" alt="Red power tiller" loading="lazy"></div><div class="txt"><h4>Power Tiller</h4><p>Deep soil preparation for larger areas</p><span class="ask">Ask for price</span></div></a>
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-welder.webp" alt="Fujima and Rilon welding machine" loading="lazy"></div><div class="txt"><h4>Fujima Welding Machine</h4><p>MMA 300 · Digital and auto</p><span class="ask">Ask for price</span></div></a>
+<a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-grinder.webp" alt="Zekoki angle grinder" loading="lazy"></div><div class="txt"><h4>Zekoki Angle Grinder</h4><p>9561PS · 840 W</p><span class="ask">Ask for price</span></div></a>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="catalog" aria-labelledby="catalog-title">
+    <div class="sec-head">
+      <div class="eyebrow">Product catalog 2026</div>
+      <h2 class="h2" id="catalog-title">Browse our products</h2>
+      <p class="lead">A selection from our stores. If you don't see it here, message us. We likely have it or can get it for you.</p>
+    </div>
+
+    <div class="tools">
+      <label class="search" for="q">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <span class="sr">Search products</span>
+        <input id="q" type="search" placeholder="Search, e.g. submersible pump" autocomplete="off">
+      </label>
+      <div class="chips" role="group" aria-label="Product categories">
+<button class="chip" type="button" data-for="agriculture">Agriculture</button>
+<button class="chip" type="button" data-for="pumps">Pumps &amp; Plumbing</button>
+<button class="chip" type="button" data-for="engines">Engines</button>
+<button class="chip" type="button" data-for="generators">Generators</button>
+<button class="chip" type="button" data-for="industrial">Industrial</button>
+<button class="chip" type="button" data-for="hardware">Hardware &amp; Construction</button>
+<button class="chip" type="button" data-for="power-tools">Power Tools</button>
+<button class="chip" type="button" data-for="electrical">Electrical &amp; Lighting</button>
+<button class="chip" type="button" data-for="marine">Fishing &amp; Marine</button>
+<button class="chip" type="button" data-for="spare-parts">Spare Parts</button>
+      </div>
+    </div>
+
+<div class="cat" data-cat="agriculture"><h3>Agriculture</h3><p class="lead">From land preparation to harvest and milling.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/harvester.webp" alt="Fujimoto mini harvester" loading="lazy"></div><div class="txt"><h4>Fujimoto Mini Harvester</h4><p>25 hp crawler · 1.1 m cutting width</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><span class="badge">New</span><img src="img/new-yamma-cutout.webp" alt="Red Yamma mini tractor" loading="lazy"></div><div class="txt"><h4>Yamma Mini Tractor</h4><p>Ride-on, with canopy and padded seat</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><span class="badge soon">Coming soon</span><img src="img/new-fujimoto-tractor.webp" alt="Green Fujimoto mini tractor" loading="lazy"></div><div class="txt"><h4>Fujimoto Mini Tractor</h4><p>24 hp diesel · 4x4 drive</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-floating-tiller.webp" alt="Floating tillers" loading="lazy"></div><div class="txt"><h4>Floating Tillers</h4><p>Churn and level soil in flooded paddies</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-power-tiller.webp" alt="Red power tiller" loading="lazy"></div><div class="txt"><h4>Power Tiller</h4><p>Deep soil preparation for larger areas</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-hand-tractor.webp" alt="Hand tractor" loading="lazy"></div><div class="txt"><h4>Hand Tractors</h4><p>Walking tractors for plowing and puddling</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-thresher.webp" alt="Rice thresher" loading="lazy"></div><div class="txt"><h4>Rice Thresher</h4><p>Separates grain from stalks, faster</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-reaper.webp" alt="Paddy reaper" loading="lazy"></div><div class="txt"><h4>Paddy Reaper</h4><p>Cuts rice stalks quickly at harvest</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-sato-corn-mill.webp" alt="SATO corn mill" loading="lazy"></div><div class="txt"><h4>SATO Corn Mill</h4><p>150 kg/hr · 3 hp · 220 V</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-rice-mill.webp" alt="Industrial rice mill" loading="lazy"></div><div class="txt"><h4>Industrial Rice Mills</h4><p>Husks and polishes palay into clean rice</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-rice-mill-hi.webp" alt="High-output rice mill" loading="lazy"></div><div class="txt"><h4>High-Output Rice Mill</h4><p>500–600 kg per hour</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-rice-mill-mate.webp" alt="Rice Mill Mate rice mill" loading="lazy"></div><div class="txt"><h4>Rice Mill Mate</h4><p>Mills palay into clean, polished rice</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-4in1.webp" alt="Rice mill and hammer mill" loading="lazy"></div><div class="txt"><h4>4-in-1 Rice Mill / Hammer Mill</h4><p>Mills, grinds and crushes rice and corn</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-pulverizer.webp" alt="Combined rice mill and flour pulverizer" loading="lazy"></div><div class="txt"><h4>Rice Mill &amp; Flour Pulverizer</h4><p>Polishes rice and grinds grain into flour</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-rice-corn.webp" alt="Rice and corn milling machine" loading="lazy"></div><div class="txt"><h4>Rice &amp; Corn Milling Machine</h4><p>Husks and refines rice and corn</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-pelletizer.webp" alt="Feed pelletizer" loading="lazy"></div><div class="txt"><h4>Feed Pelletizers</h4><p>Turns mixed feed into uniform pellets</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-grain-bagger.webp" alt="Grain collector and bagging machine" loading="lazy"></div><div class="txt"><h4>Grain Collector &amp; Bagger</h4><p>Collects grain straight into bags</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-sprayer.webp" alt="Zekoki knapsack sprayer" loading="lazy"></div><div class="txt"><h4>Knapsack Sprayers</h4><p>For fertilizer, herbicide and pesticide</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-chaff.webp" alt="Chaff cutter" loading="lazy"></div><div class="txt"><h4>Chaff Cutters</h4><p>Chops straw and fodder for livestock</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>Other farm machines and implements, plus parts and service for everything we sell.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="pumps"><h3>Pumps &amp; Plumbing</h3><p class="lead">Pumps for homes, farms and buildings, with after-sales support at our branches.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><span class="badge">New</span><img src="img/new-shinro-pump.webp" alt="SHINRO solar pump" loading="lazy"></div><div class="txt"><h4>SHINRO Solar Pump</h4><p>Runs on solar power, no fuel needed</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-water.webp" alt="Green jet water pump" loading="lazy"></div><div class="txt"><h4>Water Pumps</h4><p>Jet and self-priming · 0.5–2 hp</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-centrifugal.webp" alt="Blue Dayuan centrifugal pump" loading="lazy"></div><div class="txt"><h4>Centrifugal Pumps</h4><p>High-volume surface pumps for irrigation</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-engine-pump.webp" alt="Diesel engine water pump" loading="lazy"></div><div class="txt"><h4>Diesel &amp; Gasoline Water Pumps</h4><p>Engine-driven · For irrigation and drainage</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-booster.webp" alt="Micro vortex pump on a pressure tank" loading="lazy"></div><div class="txt"><h4>Micro Vortex Pumps</h4><p>Compact, steady and efficient</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-peripheral.webp" alt="Peripheral pump" loading="lazy"></div><div class="txt"><h4>Peripheral Pumps</h4><p>High pressure for homes and buildings</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-multistage.webp" alt="Multi-stage pump" loading="lazy"></div><div class="txt"><h4>Multi-Stage Pumps</h4><p>For tall buildings and long pipelines</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-deepwell-set.webp" alt="Deep well submersible pumps" loading="lazy"></div><div class="txt"><h4>Deep Well Submersibles</h4><p>Water from 20 m and deeper</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-shallow.webp" alt="Shallow well submersible pumps" loading="lazy"></div><div class="txt"><h4>Shallow Well Submersibles</h4><p>For open wells, cisterns and reservoirs</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-clean-sewage.webp" alt="Clean water and sewage submersible pumps" loading="lazy"></div><div class="txt"><h4>Clean &amp; Sewage Submersibles</h4><p>For drainage and wastewater pits</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-effluent.webp" alt="Effluent sewage pumps" loading="lazy"></div><div class="txt"><h4>Effluent Sewage Pumps</h4><p>Handles dirty water with soft solids</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-farming.webp" alt="Light-weight farming pumps" loading="lazy"></div><div class="txt"><h4>Light-Weight Farming Pumps</h4><p>Portable, for paddies and remote areas</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-pool.webp" alt="Pool and garden pump" loading="lazy"></div><div class="txt"><h4>Pool &amp; Garden Pumps</h4><p>With strainer, for pools and fountains</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-tanks.webp" alt="Bestank water tanks" loading="lazy"></div><div class="txt"><h4>Water Tanks</h4><p>Bestank, Tiger · 500 L to 5,000 L and up</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pu-fittings.webp" alt="PVC fittings" loading="lazy"></div><div class="txt"><h4>Pipes &amp; Fittings</h4><p>PVC, PPR and GI · Unidex, Atlanta</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>Booster pump sets, pressure tanks, valves, faucets and other plumbing supplies.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="engines"><h3>Engines</h3><p class="lead">Diesel and gasoline engines for farm, boat and industrial use.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/bs-diesel-engine.webp" alt="Red 12 hp diesel engine" loading="lazy"></div><div class="txt"><h4>Diesel Engines</h4><p>190FA · 12 hp · Fiber tank and cover</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/en-yamma.webp" alt="Yamma diesel engine" loading="lazy"></div><div class="txt"><h4>Yamma Engines</h4><p>Low maintenance, for farm and industry</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/en-proquip.webp" alt="Pro-Quip engine" loading="lazy"></div><div class="txt"><h4>Pro-Quip Engines</h4><p>Consistent power, fuel efficient</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/en-sunpor.webp" alt="Sunpor engine" loading="lazy"></div><div class="txt"><h4>Sunpor Engines</h4><p>Cost-effective and easy to maintain</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/en-zekoki.webp" alt="Zekoki engine" loading="lazy"></div><div class="txt"><h4>Zekoki Engines</h4><p>Dependable power for many machines</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ag-wc-engine.webp" alt="Water-cooled diesel engine" loading="lazy"></div><div class="txt"><h4>Water-Cooled Diesel Engines</h4><p>For continuous, heavy-load work</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>More engine models and sizes in store. Tell us what it will run and we&#x27;ll match the horsepower.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="generators"><h3>Generators</h3><p class="lead">Choose by type. We&#x27;ll help you pick the right size for your load.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/gen-sharkpro.webp" alt="Sharkpro silent diesel generator" loading="lazy"></div><div class="txt"><h4>Silent Type Diesel Generator</h4><p>Soundproof canopy · 5 kW to 25 kVA</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/gen-open-diesel.webp" alt="Blackstone open-frame diesel generator" loading="lazy"></div><div class="txt"><h4>Open Type Diesel Generator</h4><p>Rugged open frame · From 3.3 kW</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/gen-gasoline.webp" alt="Blackstone gasoline generator" loading="lazy"></div><div class="txt"><h4>Gasoline Generator</h4><p>Open frame with AVR · For home backup</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/gen-portable-wheels.webp" alt="Blackstone portable generator with wheels" loading="lazy"></div><div class="txt"><h4>Portable Generator with Wheels</h4><p>Electric start and AVR · Easy to move</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/gen-delta.webp" alt="Delta portable inverter generator" loading="lazy"></div><div class="txt"><h4>Inverter Generator</h4><p>Gasoline · Clean power for electronics</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/gen-gf-pair.webp" alt="Two Greenfield portable power stations" loading="lazy"></div><div class="txt"><h4>Portable Power Station</h4><p>Greenfield · 600 W and 800 W</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>More Blackstone, Sharkpro and Delta models in store. Tell us what you need to power and we&#x27;ll suggest one.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="industrial"><h3>Industrial</h3><p class="lead">Machines for site work, finishing and maintenance.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-brush-cutter.webp" alt="Brush cutter" loading="lazy"></div><div class="txt"><h4>Brush Cutters</h4><p>Zekoki, Honda, Yamata · Gasoline</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-mixer.webp" alt="Concrete mixer" loading="lazy"></div><div class="txt"><h4>Concrete Mixers</h4><p>Steel drum, several sizes</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-vibrator.webp" alt="Concrete vibrator" loading="lazy"></div><div class="txt"><h4>Concrete Vibrators</h4><p>Zekoki, EMTOP, Yamato · Engine type</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-trowel.webp" alt="Power trowel" loading="lazy"></div><div class="txt"><h4>Power Trowels</h4><p>Zekoki, EMTOP · Walk-behind</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-compactor.webp" alt="Plate compactor" loading="lazy"></div><div class="txt"><h4>Plate Compactors</h4><p>Zekoki, EMTOP · Gasoline</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-compressor.webp" alt="Zekoki air compressors" loading="lazy"></div><div class="txt"><h4>Air Compressors</h4><p>DongCheng, Zekoki, Vespa</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-washer.webp" alt="Pressure washer" loading="lazy"></div><div class="txt"><h4>Pressure Washers</h4><p>Hoyoma, Zekoki, Raijin</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/in-welding.webp" alt="Zekoki welding machine" loading="lazy"></div><div class="txt"><h4>Welding Machines</h4><p>Zekoki, Fujima, Rilon, Yamato</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>TIG and inverter welders, more mixer and compressor sizes, and other site equipment.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="hardware"><h3>Hardware &amp; Construction</h3><p class="lead">Building supplies for small repairs to full projects.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic fill"><img src="img/hw-rebar.webp" alt="Deformed steel bars" loading="lazy"></div><div class="txt"><h4>Deformed Bars</h4><p>Grade 33, 40 and 60</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-zinc.webp" alt="Corrugated zinc roofing sheet" loading="lazy"></div><div class="txt"><h4>Corrugated Zinc</h4><p>0.20–0.40 mm · GI and pre-painted</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-purlins.webp" alt="Steel purlins" loading="lazy"></div><div class="txt"><h4>Purlins</h4><p>2x3 to 2x6 · Galvanized and plain</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-gi-pipe.webp" alt="GI pipes" loading="lazy"></div><div class="txt"><h4>GI Pipes</h4><p>½ to 6 in · Schedule 20 to 40</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-gi-wire.webp" alt="Coil of GI wire" loading="lazy"></div><div class="txt"><h4>GI Wire</h4><p>#8 to #16 · Per kilo or per roll</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-angle-bars.webp" alt="Steel angle bars" loading="lazy"></div><div class="txt"><h4>Angle &amp; Flat Bars</h4><p>2–7 mm · Carbon and galvanized</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-plywood.webp" alt="Plywood sheets" loading="lazy"></div><div class="txt"><h4>Plywood &amp; Cement Boards</h4><p>Ordinary and marine</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-paint.webp" alt="Triton paint cans" loading="lazy"></div><div class="txt"><h4>Triton Paints</h4><p>Complete brand assortment</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/hw-fasteners.webp" alt="Bolts, nuts and washers" loading="lazy"></div><div class="txt"><h4>Fasteners</h4><p>Bolts, nuts, screws and washers</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>Cement, Pioneer sealants and epoxy, welding rods and other building supplies.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="power-tools"><h3>Power Tools</h3><p class="lead">Zekoki, DongCheng, EMTOP, SKIL and more.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-grinder.webp" alt="Zekoki angle grinder" loading="lazy"></div><div class="txt"><h4>Angle Grinders</h4><p>Zekoki 9561PS · 840 W</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-drill.webp" alt="Cordless drill" loading="lazy"></div><div class="txt"><h4>Drills &amp; Impact Drills</h4><p>Cordless 12 V / 20 V and corded</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-cutoff.webp" alt="Metal cut-off saw" loading="lazy"></div><div class="txt"><h4>Metal Cut-Off Saws</h4><p>14 in (355 mm) chop saw</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-rotary.webp" alt="Rotary hammer" loading="lazy"></div><div class="txt"><h4>Rotary Hammers</h4><p>Drill and chisel concrete</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-recip.webp" alt="Cordless reciprocating saw" loading="lazy"></div><div class="txt"><h4>Reciprocating Saws</h4><p>Cut wood, metal and pipes</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-jigsaw.webp" alt="Cordless jigsaw" loading="lazy"></div><div class="txt"><h4>Jigsaws</h4><p>Curved or straight cuts</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-circular.webp" alt="Circular saw" loading="lazy"></div><div class="txt"><h4>Circular Saws</h4><p>Straight cuts in wood and boards</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-mitre.webp" alt="Mitre saw" loading="lazy"></div><div class="txt"><h4>Table &amp; Mitre Saws</h4><p>Straight and angled cuts for framing</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-sander.webp" alt="Orbital sander" loading="lazy"></div><div class="txt"><h4>Orbital Sanders</h4><p>Fine finish on wood, metal, plastic</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-polisher.webp" alt="Polisher" loading="lazy"></div><div class="txt"><h4>Polishers</h4><p>For metal, wood and cars</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-blower.webp" alt="Cordless blower with battery and charger" loading="lazy"></div><div class="txt"><h4>Blowers</h4><p>Handheld electric and cordless</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-vacuum.webp" alt="Wet and dry vacuum" loading="lazy"></div><div class="txt"><h4>Wet &amp; Dry Vacuums</h4><p>10 L to 30 L tanks</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-heatgun.webp" alt="Heat gun" loading="lazy"></div><div class="txt"><h4>Heat Guns</h4><p>Strip paint, shrink and soften</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-air.webp" alt="Air spray gun" loading="lazy"></div><div class="txt"><h4>Air Tools</h4><p>Spray guns and more, run on compressed air</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-drillpress.webp" alt="Drill press" loading="lazy"></div><div class="txt"><h4>Drill Press</h4><p>Precise holes, adjustable speed</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/pt-laser.webp" alt="Leveling laser" loading="lazy"></div><div class="txt"><h4>Leveling Lasers</h4><p>Horizontal and vertical alignment</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>Hand tools, plus more models from SKIL, Devon, KEN and other brands.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="electrical"><h3>Electrical &amp; Lighting</h3><p class="lead">Wiring, protection, LED lighting and solar.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/el-wires.webp" alt="Electrical wires" loading="lazy"></div><div class="txt"><h4>Wires &amp; Cables</h4><p>THHN/THWN, PDX · 2.0 to 30 mm²</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic fill"><img src="img/el-panel.webp" alt="Panel board" loading="lazy"></div><div class="txt"><h4>Panel Boards &amp; Breakers</h4><p>Bolt-on and plug-in, 15 A to 100 A+</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic fill"><img src="img/el-sockets.webp" alt="Wall sockets" loading="lazy"></div><div class="txt"><h4>Sockets &amp; Switches</h4><p>Flush and surface mounted</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic fill"><img src="img/el-bulbs.webp" alt="LED bulbs" loading="lazy"></div><div class="txt"><h4>LED Bulbs</h4><p>Bulbs, T5/T8 tubes, E27 base</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic fill"><img src="img/el-flood.webp" alt="Outdoor floodlight" loading="lazy"></div><div class="txt"><h4>Floodlights</h4><p>IP65/66 · 10 W to 200 W+</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic fill"><img src="img/el-solar.webp" alt="Solar panel" loading="lazy"></div><div class="txt"><h4>Solar Solutions</h4><p>Panels, controllers, solar lights</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic fill"><img src="img/el-tape.webp" alt="Wires, tools and electrical accessories" loading="lazy"></div><div class="txt"><h4>Electrical Tape &amp; Accessories</h4><p>Vinyl and rubber tape, cable ties, wire nuts</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>Safety switches, conduits and fittings, streetlights and other electrical supplies.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="marine"><h3>Fishing &amp; Marine</h3><p class="lead">Essentials for bancas and bigger fishing boats.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ma-rope.webp" alt="Coils of marine rope" loading="lazy"></div><div class="txt"><h4>Ropes</h4><p>Synthetic and polypropylene, many sizes</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ma-mono.webp" alt="Monofilament fishing line" loading="lazy"></div><div class="txt"><h4>Monofilament Line</h4><p>Nylon, wide range of diameters</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ma-nets.webp" alt="Green fishing nets" loading="lazy"></div><div class="txt"><h4>Polynets &amp; Mononets</h4><p>Drag, cast and gill nets</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ma-floats.webp" alt="Colorful fishing floats" loading="lazy"></div><div class="txt"><h4>Floats &amp; Sinkers</h4><p>For nets and lines</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ma-propeller.webp" alt="Stainless boat propeller" loading="lazy"></div><div class="txt"><h4>Propellers</h4><p>Stainless and bronze, 2 and 3 blades</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/ma-boat-engine.webp" alt="Diesel boat engine" loading="lazy"></div><div class="txt"><h4>Boat Engines</h4><p>Diesel and gasoline · Small to medium boats</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>Hooks, swivels, cross joints and other fishing accessories, plus more rope, line and net sizes.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+<div class="cat" data-cat="spare-parts"><h3>Spare Parts</h3><p class="lead">Parts for farm, marine and industrial engines.</p><div class="grid"><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-block.webp" alt="Engine block" loading="lazy"></div><div class="txt"><h4>Engine Blocks</h4><p>Gasoline and diesel</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-pistons.webp" alt="Pistons" loading="lazy"></div><div class="txt"><h4>Pistons</h4><p>Gasoline and diesel</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-crank.webp" alt="Crankshaft" loading="lazy"></div><div class="txt"><h4>Crankshafts</h4><p>Gasoline and diesel</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-carb.webp" alt="Carburetor" loading="lazy"></div><div class="txt"><h4>Carburetors</h4><p>For gasoline engines</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-recoil.webp" alt="Recoil starter" loading="lazy"></div><div class="txt"><h4>Recoil Starters</h4><p>Pull starters for small engines</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-rocker.webp" alt="Rocker arm" loading="lazy"></div><div class="txt"><h4>Rocker Arms</h4><p>Gasoline and diesel</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-impeller.webp" alt="Pump impeller" loading="lazy"></div><div class="txt"><h4>Impellers</h4><p>For water pumps</p><span class="ask">Ask for price</span></div></a><a class="card" href="https://m.me/inyoini1" rel="noopener"><div class="pic"><img src="img/sp-bearings.webp" alt="Bearings" loading="lazy"></div><div class="txt"><h4>Bearings</h4><p>Gasoline and diesel engines</p><span class="ask">Ask for price</span></div></a></div><div class="more"><div><b>And more</b><p>Engine housings and other parts. Send us your engine model and we&#x27;ll check.</p></div><a class="go" href="https://m.me/inyoini1" rel="noopener">Ask if we have it <span aria-hidden="true">→</span></a></div></div>
+
+    <div class="empty" id="empty" hidden>
+      <p><strong>No product matches that search.</strong> We may still have it in store.</p>
+      <a class="btn btn-solid" href="https://m.me/inyoini1" rel="noopener">Ask us on Messenger</a>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="band-title">
+    <div class="wrap">
+      <div>
+        <h2 id="band-title">Follow us for new arrivals and promos</h2>
+        <p>We post new stocks, promos and store updates on our Facebook page.</p>
+      </div>
+      <a class="btn btn-solid" href="https://www.facebook.com/inyoini1" rel="noopener">Follow us on Facebook</a>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="visit" aria-labelledby="visit-title">
+    <div class="sec-head">
+      <div class="eyebrow">Built on trust for 25 years</div>
+      <h2 class="h2" id="visit-title">Visit or have it delivered</h2>
+    </div>
+    <div class="visit">
+      <img class="photo" src="img/store.jpg" alt="Inyo Ini Enterprise store building" width="820" height="607" loading="lazy">
+      <div class="stores">
+        <div class="box">
+          <h3>Our stores</h3>
+          <ul>
+            <li><b>Estancia</b><span>Main · Brgy. Poblacion Zone II</span></li>
+            <li><b>Sara</b><span>Iloilo</span></li>
+            <li><b>Banate</b><span>Iloilo</span></li>
+            <li><b>Matt 6-33 Agricultural Machinery Trading</b><span>Jaro, Iloilo · 0930 521 8549</span></li>
+          </ul>
+        </div>
+        <div class="box contact">
+          <h3>Contact us</h3>
+          <a href="tel:+639608345138"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>0960 834 5138</a>
+          <a href="https://www.facebook.com/inyoini1" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>facebook.com/inyoini1</a>
+          <a href="mailto:inyoinienterpriseinc@gmail.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>inyoinienterpriseinc@gmail.com</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Inyo+Ini+Enterprise+Estancia+Iloilo" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions to our Estancia store</a>
+        </div>
+        <div class="box">
+          <h3>Shop online</h3>
+          <p style="margin:0 0 8px;color:var(--muted)">Order from our official stores:</p>
+          <div class="shops">
+            <a class="btn btn-line" href="https://shopee.ph/inyoini" target="_blank" rel="noopener">Shopee</a>
+            <a class="btn btn-line" href="https://www.lazada.com.ph/shop/inyo-ini-enterprise" target="_blank" rel="noopener">Lazada</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="img/logo-full.png" alt="Inyo Ini Enterprise Inc." width="150" height="122">
+    <p>Construction, hardware, agriculture, fishing, power tools, spare parts, pumps and engines.</p>
+    <p>Brgy. Poblacion Zone II, Estancia, Iloilo · <a href="tel:+639608345138" style="white-space:nowrap">0960 834 5138</a></p>
+    <p>© 2026 Inyo Ini Enterprise Inc.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var cats = Array.prototype.slice.call(document.querySelectorAll('.cat'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var q = document.getElementById('q');
+  var empty = document.getElementById('empty');
+  var ids = cats.map(function (c) { return c.getAttribute('data-cat'); });
+  var current = ids[0];
+
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+
+  function show(id) {
+    if (ids.indexOf(id) === -1) id = ids[0];
+    current = id;
+    cats.forEach(function (c) {
+      c.hidden = c.getAttribute('data-cat') !== id;
+      each(c.querySelectorAll('.card'), function (k) { k.hidden = false; });
+      c.querySelector('.more').hidden = false;
+    });
+    chips.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-for') === id ? 'true' : 'false'); });
+    empty.hidden = true;
+  }
+
+  function search(text) {
+    var t = text.trim().toLowerCase();
+    if (!t) { show(current); return; }
+    var words = t.split(/\s+/), hits = 0;
+    chips.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    cats.forEach(function (c) {
+      var any = false, title = c.querySelector('h3').textContent;
+      each(c.querySelectorAll('.card'), function (k) {
+        var img = k.querySelector('img');
+        var hay = (k.textContent + ' ' + (img ? img.alt : '') + ' ' + title).toLowerCase();
+        var ok = words.every(function (w) { return hay.indexOf(w) !== -1; });
+        k.hidden = !ok; if (ok) { any = true; hits++; }
+      });
+      c.querySelector('.more').hidden = true;
+      c.hidden = !any;
+    });
+    empty.hidden = hits > 0;
+  }
+
+  chips.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var id = b.getAttribute('data-for');
+      if (q.value) q.value = '';
+      show(id);
+      if (location.hash.slice(1) !== id) location.hash = id;
+      var top = document.querySelector('.tools').getBoundingClientRect().top;
+      if (top < 0 || top > window.innerHeight * 0.6) document.getElementById('catalog').scrollIntoView({ block: 'start' });
+    });
+  });
+  q.addEventListener('input', function () { search(q.value); });
+  window.addEventListener('hashchange', function () {
+    var id = location.hash.slice(1);
+    if (ids.indexOf(id) !== -1) { q.value = ''; show(id); }
+  });
+
+  var start = location.hash.slice(1);
+  show(ids.indexOf(start) !== -1 ? start : ids[0]);
+  if (ids.indexOf(start) !== -1) document.getElementById('catalog').scrollIntoView({ block: 'start' });
+})();
+</script>
+</body>
+</html>
